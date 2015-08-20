@@ -49,7 +49,7 @@ public class StepConsoleNote<T> extends ConsoleNote<T> {
       text.addMarkup(0, "<div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>");
     } else {
       int end = text.length() - 1;
-      text.addMarkup(end, "</div>");
+      text.addMarkup(0, end, "<!--linenumbers_end-->", "</div>");
     }
     return null;
   }
