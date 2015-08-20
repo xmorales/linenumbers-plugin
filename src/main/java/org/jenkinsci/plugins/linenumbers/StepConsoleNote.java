@@ -50,7 +50,7 @@ public class StepConsoleNote<T> extends ConsoleNote<T> {
       String foldName = "buildstep." + counter;
       text.addMarkup(0, end, "<!--linenumbers_start1--><div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>", "<!--linenumbers_start2-->");
     } else {
-      Pattern div = Pattern.compile("<div")  
+      Pattern div = Pattern.compile("<div");
       if ( text.findTokens(div).isEmpty() ) {
           text.addMarkup(0, end, "<!--linenumbers_end1-->", "</div><!--linenumbers_end2-->");
       } else {
