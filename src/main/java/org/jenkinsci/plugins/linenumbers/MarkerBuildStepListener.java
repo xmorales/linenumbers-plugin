@@ -40,7 +40,6 @@ public class MarkerBuildStepListener extends BuildStepListener {
   public void finished(AbstractBuild build, BuildStep bs, BuildListener listener, boolean canContinue) {
     try {
       listener.annotate(new StepConsoleNote<Object>(Kind.BUILDSTEP_END, getCounter(build)));
-      listener.getLogger().println("Added ending annotate for buildStep " + getCounter(build));
     } catch (IOException e) {
       listener.getLogger().println("Unable to insert StepConsoleNote");
     }
@@ -50,7 +49,6 @@ public class MarkerBuildStepListener extends BuildStepListener {
   public void started(final AbstractBuild build, final BuildStep bs, final BuildListener listener) {
     try {
       listener.annotate(new StepConsoleNote<Object>(Kind.BUILDSTEP_START, incrementCounter(build)));
-      listener.getLogger().println("Added starting annotate for buildStep " + getCounter(build));
     } catch (IOException e) {
       listener.getLogger().println("Unable to insert StepConsoleNote");
     }
