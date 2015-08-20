@@ -50,7 +50,7 @@ public class StepConsoleNote<T> extends ConsoleNote<T> {
       String foldName = "buildstep." + counter;
       text.addMarkup(0, end, "<!--linenumbers_start1--><div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>", "<!--linenumbers_start2-->");
     } else {
-      Pattern div = Pattern.compile("<div");
+      Pattern p = Pattern.compile("<div");
       Matcher m = p.matcher(text.toString(false));
       if ( m.matches() ) {
           //close before the start of the next build step if is on the same line
