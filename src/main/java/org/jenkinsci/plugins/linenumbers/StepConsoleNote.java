@@ -44,12 +44,13 @@ public class StepConsoleNote<T> extends ConsoleNote<T> {
 
   @Override
   public ConsoleAnnotator annotate(T context, MarkupText text, int charPos) {
+    int end = text.length() - 1;
     if (kind == Kind.BUILDSTEP_START) {
       String foldName = "buildstep." + counter;
-      text.addMarkup(0, "<div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>");
+      text.addMarkup(0, end, "<!--linenumbers_start1--><div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>", "<!--linenumbers_start2-->");
     } else {
-      int end = text.length() - 1;
-      text.addMarkup(0, end, "<!--linenumbers_end-->", "</div>");
+      
+      text.addMarkup(0, end, "<!--linenumbers_end1-->", "</div><!--linenumbers_end2-->");
     }
     return null;
   }
