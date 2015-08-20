@@ -48,7 +48,8 @@ public class StepConsoleNote<T> extends ConsoleNote<T> {
       String foldName = "buildstep." + counter;
       text.addMarkup(0, "<div class=\"fold-start fold\" id=\"fold-start-" + foldName + "\"><span class=\"fold-name\">" + foldName + "</span>");
     } else {
-      text.addMarkup(0, 0, "", "<!-- linenumbers div-->");
+      int end = text.length() - 1;
+      text.addMarkup(end, "<!-- linenumbers div-->");
     }
     return null;
   }
